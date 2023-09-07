@@ -138,7 +138,7 @@ variable "redis_cluster_num_cache_nodes" {
 variable "asg_instance_type" {
   description = "Required: The EC2 instance type for the application Auto Scaling Group."
   type        = string
-  default     = "t3.small"
+  default     = "c7g.medium"
 }
 
 variable "asg_reprovision_string" {
