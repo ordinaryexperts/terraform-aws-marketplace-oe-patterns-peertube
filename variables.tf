@@ -17,13 +17,9 @@ variable "vpc_cidr" {
 }
 
 variable "vpc_nat_gateway_per_subnet" {
-  type        = string
-  default     = "false"
+  type        = bool
+  default     = false
   description = "Optional: Set to 'true' to provision a NAT Gateway in each public subnet for AZ HA."
-  validation {
-    condition     = contains(["true", "false"], var.vpc_nat_gateway_per_subnet)
-    error_message = "Allowed values are 'true' or 'false'."
-  }
 }
 
 variable "vpc_private_subnet1_id" {
@@ -105,13 +101,9 @@ variable "ses_instance_user_access_key_serial" {
 }
 
 variable "ses_create_domain_identity" {
-  type        = string
-  default     = "true"
+  type        = bool
+  default     = true
   description = "Optional: If 'true', a SES Domain Identity will be created from the hosted zone."
-  validation {
-    condition     = contains(["true", "false"], var.ses_create_domain_identity)
-    error_message = "Allowed values: true, false."
-  }
 }
 
 variable "db_secret_arn" {
