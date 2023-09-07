@@ -11,7 +11,7 @@ terraform {
 resource "aws_cloudformation_stack" "oe_patterns_peertube" {
   name = var.stack_name
 
-  template_url = ""
+  template_url = "https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/4b0e2889-01ca-46e9-9f02-54b48010ddc4.a777b5cc-7e16-4943-ab8c-2271b218636a.template"
 
   capabilities = ["CAPABILITY_NAMED_IAM"]
 
