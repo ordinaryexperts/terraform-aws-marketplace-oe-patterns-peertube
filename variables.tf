@@ -186,8 +186,8 @@ variable "asg_key_name" {
 }
 
 variable "cloudfront_price_class" {
-  type = string
-  default = "PriceClass_All"
+  type        = string
+  default     = "PriceClass_All"
   description = "Required: Price class to use for CloudFront CDN."
   validation {
     condition     = contains(["PriceClass_All", "PriceClass_200", "PriceClass_100"], var.cloudfront_price_class)
