@@ -1,7 +1,7 @@
 variable "stack_name" {
   type        = string
   description = "Name of the CloudFormation stack"
-  default     = "oe_patterns_mastodon"
+  default     = "oe_patterns_peertube"
 }
 
 variable "vpc_id" {
@@ -159,6 +159,30 @@ variable "alb_certificate_arn" {
 variable "alb_ingress_cidr" {
   description = "Required: VPC IPv4 CIDR block to restrict access to ALB."
   type        = string
+}
+
+variable "asg_data_volume_backup_retention_period" {
+  type        = number
+  default     = 7
+  description = "Required: The number of nightly EBS snapshots to retain."
+}
+
+variable "asg_data_volume_backup_vault_arn" {
+  type        = string
+  default     = ""
+  description = "Optional: An AWS Backup Vault ARN to use for storing EBS backups. If not specified, a vault will be created."
+}
+
+variable "asg_disk_usage_alarm_threshold" {
+  type        = number
+  default     = 80
+  description = "Required: The alarm threshold for disk usage percentage."
+}
+
+variable "asg_key_name" {
+  type        = string
+  default     = ""
+  description = "Optional: The EC2 key pair name for the instance."
 }
 
 variable "cloudfront_price_class" {
